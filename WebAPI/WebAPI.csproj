@@ -194,7 +194,6 @@
     <Compile Include="Controllers\ItemPhotoPropertySetController.cs" />
     <Compile Include="Controllers\ItemPhotosController.cs" />
     <Compile Include="Controllers\ItemsController.cs" />
-    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Data\DeletePhotoRequest.cs" />
     <Compile Include="Data\UpdatePhotoRequest.cs" />
     <Compile Include="Global.asax.cs">
@@ -205,12 +204,9 @@
     <Compile Include="Helpers\ItemPhotosHelper.cs" />
     <Compile Include="Helpers\ItemsHelper.cs" />
     <Compile Include="Helpers\ProductHelper.cs" />
-    <Compile Include="Models\ItemPhotoPropertyViewModel.cs" />
-    <Compile Include="Models\ItemPhotoViewModel.cs" />
-    <Compile Include="Models\ItemViewModel.cs" />
-    <Compile Include="Models\Photo.cs" />
-    <Compile Include="Models\ProductViewModel.cs" />
-    <Compile Include="Models\ItemProperties.cs" />
+    <Compile Include="Models\ItemPhotoPropertyDTO.cs" />
+    <Compile Include="Models\ItemPhotoDTO.cs" />
+    <Compile Include="Models\ItemDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

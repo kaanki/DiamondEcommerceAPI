@@ -15,17 +15,17 @@ namespace WebAPI.Controllers
     {
         //api/itemphotos
         [HttpGet]
-        public List<ItemPhotoViewModel> GetAllItems()
+        public List<ItemPhotoDTO> GetAllItems()
         {
             return ItemPhotosHelper.GetAllItemPhotoView();
         }
 
         //api/itemphotos/3
         [HttpGet]
-        public ItemPhotoViewModel getItemPhotoByID(int id)
+        public ItemPhotoDTO getItemPhotoByID(int id)
         {
 
-            ItemPhotoViewModel İtemPhotoModel = ItemPhotosHelper.GetItemPhotoViewWithID(id);
+            ItemPhotoDTO İtemPhotoModel = ItemPhotosHelper.GetItemPhotoViewWithID(id);
             return İtemPhotoModel;
         }
 

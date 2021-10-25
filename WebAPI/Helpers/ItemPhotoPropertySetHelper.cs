@@ -10,14 +10,14 @@ namespace WebAPI.Helpers
     public class ItemPhotoPropertySetHelper
     {
 
-        public static List<ItemPhotoPropertyViewModel> GetAllItemPhotoView()
+        public static List<ItemPhotoPropertyDTO> GetAllItemPhotoView()
         {
             var repo = GeneralHelper.getItemPhotosProperySetRepository();
             List<ItemPhotoPropertySet> photoPropertyList = repo.GetAll().ToList();
-            List<ItemPhotoPropertyViewModel> photoPropertViewModelList = new List<ItemPhotoPropertyViewModel>();
+            List<ItemPhotoPropertyDTO> photoPropertViewModelList = new List<ItemPhotoPropertyDTO>();
             foreach (ItemPhotoPropertySet param in photoPropertyList)
             {
-                ItemPhotoPropertyViewModel itemModel = new ItemPhotoPropertyViewModel()
+                ItemPhotoPropertyDTO itemModel = new ItemPhotoPropertyDTO()
                 {
                     Id = param.Id,
                     ItemPhotoId = param.ItemPhotoId,
@@ -31,12 +31,12 @@ namespace WebAPI.Helpers
             return photoPropertViewModelList;
         }
 
-        public static ItemPhotoPropertyViewModel GetItemPhotoPropertyWithID(int ID)
+        public static ItemPhotoPropertyDTO GetItemPhotoPropertyWithID(int ID)
         {
             var repo = GeneralHelper.getItemPhotosProperySetRepository();
             var PhotoProperty = repo.GetById(ID);
             ItemPhotoPropertySet itemModel = new ItemPhotoPropertySet();
-            ItemPhotoPropertyViewModel photoViewModel = new ItemPhotoPropertyViewModel()
+            ItemPhotoPropertyDTO photoViewModel = new ItemPhotoPropertyDTO()
             {
                 Id = PhotoProperty.Id,
                 ItemPhotoId = PhotoProperty.ItemPhotoId,

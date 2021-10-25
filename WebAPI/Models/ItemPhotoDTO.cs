@@ -5,7 +5,7 @@ using System.Web;
 
 namespace WebAPI.Models
 {
-    public class ItemPhotoViewModel
+    public class ItemPhotoDTO
     {
         public int Id { get; set; }
         public Nullable<int> ItemId { get; set; }

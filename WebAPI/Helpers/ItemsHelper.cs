@@ -9,14 +9,14 @@ namespace WebAPI.Helpers
 {
     public class ItemsHelper
     {
-        public static List<ItemViewModel> getAllItems()
+        public static List<ItemDTO> getAllItems()
         {
             var repo = GeneralHelper.getItemRepository();
             List<Item> itemList = repo.GetAll().ToList();
-            List<ItemViewModel> ItemViewModelList = new List<ItemViewModel>();
+            List<ItemDTO> ItemViewModelList = new List<ItemDTO>();
             foreach (var item in itemList)
             {
-                ItemViewModel itemModel = new ItemViewModel();
+                ItemDTO itemModel = new ItemDTO();
                 itemModel.Id = item.Id;
                 itemModel.Name = item.Name;
                 
@@ -27,11 +27,11 @@ namespace WebAPI.Helpers
 
         }
 
-        public static ItemViewModel GetItemViewModelWithID(int ID)
+        public static ItemDTO GetItemViewModelWithID(int ID)
         {
             var repo = GeneralHelper.getItemRepository();
             var item = repo.GetById(ID);
-            ItemViewModel itemModel = new ItemViewModel();
+            ItemDTO itemModel = new ItemDTO();
             itemModel.Id = item.Id;
             itemModel.Name = item.Name;
             

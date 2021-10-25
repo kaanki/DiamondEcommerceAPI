@@ -10,14 +10,14 @@ namespace WebAPI.Helpers
     public class ProductHelper
     {
 
-        public static List<ItemViewModel> getAllProducts()
+        public static List<ItemDTO> getAllProducts()
         {
             var repo = GeneralHelper.getItemRepository();
             List<Item> itemList = repo.GetAll().ToList();
-            List<ItemViewModel> ItemViewModelList = new List<ItemViewModel>();
+            List<ItemDTO> ItemViewModelList = new List<ItemDTO>();
             foreach (var item in itemList)
             {
-                ItemViewModel itemModel = new ItemViewModel();
+                ItemDTO itemModel = new ItemDTO();
                 itemModel.Id = item.Id;
                 itemModel.Name = item.Name;
                 

@@ -13,13 +13,13 @@ namespace WebAPI.Controllers
     {
 
         [HttpGet]
-        public List<ItemPhotoPropertyViewModel> GetAllItems()
+        public List<ItemPhotoPropertyDTO> GetAllItems()
         {
             return ItemPhotoPropertySetHelper.GetAllItemPhotoView();
         }
 
         [HttpGet]
-        public ItemPhotoPropertyViewModel getItemPhotoPropByID(int ID)
+        public ItemPhotoPropertyDTO getItemPhotoPropByID(int ID)
         {
 
             return ItemPhotoPropertySetHelper.GetItemPhotoPropertyWithID(ID);

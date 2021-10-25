@@ -17,13 +17,13 @@ namespace WebAPI.Controllers
     {
         //api/items
         [HttpGet]
-        public List<ItemViewModel> GetAllItems()
+        public List<ItemDTO> GetAllItems()
         {
             return ItemsHelper.getAllItems();
         }
         //api/items/1
         [HttpGet]
-        public ItemViewModel getItemWithID(int ID)
+        public ItemDTO getItemWithID(int ID)
         {
            
             return ItemsHelper.GetItemViewModelWithID(ID);

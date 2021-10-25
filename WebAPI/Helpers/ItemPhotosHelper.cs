@@ -14,14 +14,14 @@ namespace WebAPI.Helpers
     public class ItemPhotosHelper
     {
 
-        public static List<ItemPhotoViewModel> GetAllItemPhotoView()
+        public static List<ItemPhotoDTO> GetAllItemPhotoView()
         {
             var repo = GeneralHelper.getItemPhotosRepository();
             List<ItemPhoto> itemPhotoList = repo.GetAll().ToList();
-            List<ItemPhotoViewModel> ItemPhotoViewModelList = new List<ItemPhotoViewModel>();
+            List<ItemPhotoDTO> ItemPhotoViewModelList = new List<ItemPhotoDTO>();
             foreach (ItemPhoto param in itemPhotoList)
             {
-                ItemPhotoViewModel itemModel = new ItemPhotoViewModel()
+                ItemPhotoDTO itemModel = new ItemPhotoDTO()
                 {
                     Id = param.Id,
                     ItemId = param.ItemId,
@@ -45,12 +45,12 @@ namespace WebAPI.Helpers
 
        
 
-        public static ItemPhotoViewModel GetItemPhotoViewWithID (int ID)
+        public static ItemPhotoDTO GetItemPhotoViewWithID (int ID)
         {
             var repo = GeneralHelper.getItemPhotosRepository();
             var item = repo.GetById(ID);
             ItemPhoto itemModel = new ItemPhoto();
-            ItemPhotoViewModel photoViewModel = new ItemPhotoViewModel()
+            ItemPhotoDTO photoViewModel = new ItemPhotoDTO()
             {
                 Id = item.Id,
                 ItemId = item.ItemId,

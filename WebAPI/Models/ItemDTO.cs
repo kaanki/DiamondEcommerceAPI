@@ -6,7 +6,7 @@ using System.Web;
 
 namespace WebAPI.Models
 {
-    public class ItemViewModel
+    public class ItemDTO
     {
         public int Id { get; set; }
         public string Name { get; set; }
