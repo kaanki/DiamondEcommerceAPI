@@ -1,4 +1,5 @@
-﻿using Data;
+﻿using Business;
+using Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,13 +8,13 @@ using WebAPI.Models;
 
 namespace WebAPI.Helpers
 {
-    public class ItemPhotoPropertySetHelper
+    public  class ItemPhotoPropertyService
     {
-
+        private static CommonRepository<ItemPhotoPropertySet> _repo;
         public static List<ItemPhotoPropertyDTO> GetAllItemPhotoView()
         {
-            var repo = GeneralHelper.getItemPhotosProperySetRepository();
-            List<ItemPhotoPropertySet> photoPropertyList = repo.GetAll().ToList();
+            _repo = GeneralHelper.GetItemPhotosProperySetRepository();
+            List<ItemPhotoPropertySet> photoPropertyList = _repo.GetAll().ToList();
             List<ItemPhotoPropertyDTO> photoPropertViewModelList = new List<ItemPhotoPropertyDTO>();
             foreach (ItemPhotoPropertySet param in photoPropertyList)
             {
@@ -33,8 +34,8 @@ namespace WebAPI.Helpers
 
         public static ItemPhotoPropertyDTO GetItemPhotoPropertyWithID(int ID)
         {
-            var repo = GeneralHelper.getItemPhotosProperySetRepository();
-            var PhotoProperty = repo.GetById(ID);
+            _repo = GeneralHelper.GetItemPhotosProperySetRepository();
+            var PhotoProperty = _repo.GetById(ID);
             ItemPhotoPropertySet itemModel = new ItemPhotoPropertySet();
             ItemPhotoPropertyDTO photoViewModel = new ItemPhotoPropertyDTO()
             {

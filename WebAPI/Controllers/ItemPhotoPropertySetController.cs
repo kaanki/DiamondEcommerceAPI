@@ -15,14 +15,14 @@ namespace WebAPI.Controllers
         [HttpGet]
         public List<ItemPhotoPropertyDTO> GetAllItems()
         {
-            return ItemPhotoPropertySetHelper.GetAllItemPhotoView();
+            return ItemPhotoPropertyService.GetAllItemPhotoView();
         }
 
         [HttpGet]
         public ItemPhotoPropertyDTO getItemPhotoPropByID(int ID)
         {
 
-            return ItemPhotoPropertySetHelper.GetItemPhotoPropertyWithID(ID);
+            return ItemPhotoPropertyService.GetItemPhotoPropertyWithID(ID);
         }
 
 

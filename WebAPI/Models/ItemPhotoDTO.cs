@@ -21,7 +21,5 @@ namespace WebAPI.Models
 
         public string Metal { get; set; }
 
-
-
     }
 }

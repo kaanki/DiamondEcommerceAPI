@@ -8,16 +8,17 @@ using System.Net.Http;
 using WebAPI.Data;
 using WebAPI.Models;
 using System.Net;
+using Business;
 
 namespace WebAPI.Helpers
 {
-    public class ItemPhotosHelper
+    public class ItemPhotosService
     {
-
+        private static CommonRepository<ItemPhoto> _repo;
         public static List<ItemPhotoDTO> GetAllItemPhotoView()
         {
-            var repo = GeneralHelper.getItemPhotosRepository();
-            List<ItemPhoto> itemPhotoList = repo.GetAll().ToList();
+            _repo = GeneralHelper.GetItemPhotosRepository();
+            List<ItemPhoto> itemPhotoList = _repo.GetAll().ToList();
             List<ItemPhotoDTO> ItemPhotoViewModelList = new List<ItemPhotoDTO>();
             foreach (ItemPhoto param in itemPhotoList)
             {
@@ -47,8 +48,8 @@ namespace WebAPI.Helpers
 
         public static ItemPhotoDTO GetItemPhotoViewWithID (int ID)
         {
-            var repo = GeneralHelper.getItemPhotosRepository();
-            var item = repo.GetById(ID);
+            _repo = GeneralHelper.GetItemPhotosRepository();
+            var item = _repo.GetById(ID);
             ItemPhoto itemModel = new ItemPhoto();
             ItemPhotoDTO photoViewModel = new ItemPhotoDTO()
             {
@@ -67,10 +68,10 @@ namespace WebAPI.Helpers
 
         internal static HttpResponseMessage DeleteItemPhotoEntityWithID(DeletePhotoRequest req, HttpRequestMessage httpRequest)
         {
-            var repo = GeneralHelper.getItemPhotosRepository();
-            ItemPhoto item = repo.GetById(req.Id);
+            _repo = GeneralHelper.GetItemPhotosRepository();
+            ItemPhoto item = _repo.GetById(req.Id);
             item.FileName = " ";
-            if (repo.Update(item) > 0)
+            if (_repo.Update(item) > 0)
             {
                 return httpRequest.CreateResponse(System.Net.HttpStatusCode.OK);
             }
@@ -82,10 +83,10 @@ namespace WebAPI.Helpers
 
         internal static HttpResponseMessage UpdateItemPhotoEntityWithID(UpdatePhotoRequest req, HttpRequestMessage httpRequest)
         {
-            var repo = GeneralHelper.getItemPhotosRepository();
-            ItemPhoto item = repo.GetById(req.Id);
+            _repo = GeneralHelper.GetItemPhotosRepository();
+            ItemPhoto item = _repo.GetById(req.Id);
             item.FileName = req.Path;
-            if (repo.Update(item) > 0)
+            if (_repo.Update(item) > 0)
             {
                 return httpRequest.CreateResponse(System.Net.HttpStatusCode.OK);
             }

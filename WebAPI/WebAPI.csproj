@@ -193,17 +193,14 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\ItemPhotoPropertySetController.cs" />
     <Compile Include="Controllers\ItemPhotosController.cs" />
-    <Compile Include="Controllers\ItemsController.cs" />
     <Compile Include="Data\DeletePhotoRequest.cs" />
     <Compile Include="Data\UpdatePhotoRequest.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\GeneralHelper.cs" />
-    <Compile Include="Helpers\ItemPhotoPropertySetHelper.cs" />
-    <Compile Include="Helpers\ItemPhotosHelper.cs" />
-    <Compile Include="Helpers\ItemsHelper.cs" />
-    <Compile Include="Helpers\ProductHelper.cs" />
+    <Compile Include="Services\ItemPhotoPropertyService.cs" />
+    <Compile Include="Services\ItemPhotosService.cs" />
     <Compile Include="Models\ItemPhotoPropertyDTO.cs" />
     <Compile Include="Models\ItemPhotoDTO.cs" />
     <Compile Include="Models\ItemDTO.cs" />

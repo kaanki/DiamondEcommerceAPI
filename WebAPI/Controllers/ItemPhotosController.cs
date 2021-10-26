@@ -17,7 +17,7 @@ namespace WebAPI.Controllers
         [HttpGet]
         public List<ItemPhotoDTO> GetAllItems()
         {
-            return ItemPhotosHelper.GetAllItemPhotoView();
+            return ItemPhotosService.GetAllItemPhotoView();
         }
 
         //api/itemphotos/3
@@ -25,7 +25,7 @@ namespace WebAPI.Controllers
         public ItemPhotoDTO getItemPhotoByID(int id)
         {
 
-            ItemPhotoDTO İtemPhotoModel = ItemPhotosHelper.GetItemPhotoViewWithID(id);
+            ItemPhotoDTO İtemPhotoModel = ItemPhotosService.GetItemPhotoViewWithID(id);
             return İtemPhotoModel;
         }
 
@@ -33,7 +33,7 @@ namespace WebAPI.Controllers
         [HttpPost]
         public HttpResponseMessage DeletePhotoByID(DeletePhotoRequest req)
         {
-            return ItemPhotosHelper.DeleteItemPhotoEntityWithID(req, Request);
+            return ItemPhotosService.DeleteItemPhotoEntityWithID(req, Request);
         }
 
         [Route("api/ItemPhotos/UpdatePhoto")]
@@ -41,7 +41,7 @@ namespace WebAPI.Controllers
         public HttpResponseMessage UpdatePhotoByID(UpdatePhotoRequest req)
         {
             
-            return ItemPhotosHelper.UpdateItemPhotoEntityWithID(req,Request);
+            return ItemPhotosService.UpdateItemPhotoEntityWithID(req,Request);
         }
 
     }

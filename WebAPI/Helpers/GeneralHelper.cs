@@ -9,21 +9,21 @@ namespace WebAPI.Helpers
 {
     public class GeneralHelper
     {
-        internal static CommonRepository<Item> getItemRepository()
+        internal static CommonRepository<Item> GetItemRepository()
         {
             var dbo = new dbo_MasterEntities();
             return new CommonRepository<Item>(dbo);
 
         }
 
-        internal static CommonRepository<ItemPhoto> getItemPhotosRepository()
+        internal static CommonRepository<ItemPhoto> GetItemPhotosRepository()
         {
             var dbo = new dbo_MasterEntities();
             return new CommonRepository<ItemPhoto>(dbo);
 
         }
 
-        internal static CommonRepository<ItemPhotoPropertySet> getItemPhotosProperySetRepository()
+        internal static CommonRepository<ItemPhotoPropertySet> GetItemPhotosProperySetRepository()
         {
             var dbo = new dbo_MasterEntities();
             return new CommonRepository<ItemPhotoPropertySet>(dbo);
